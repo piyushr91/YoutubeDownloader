@@ -1,0 +1,4 @@
+tkinter
+pytube
+PIL
+git+https://github.com/nficano/pytube.git
