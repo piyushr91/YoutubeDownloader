@@ -1,4 +1,2 @@
-tkinter
-pytube
-PIL
+Pillow
 git+https://github.com/nficano/pytube.git
