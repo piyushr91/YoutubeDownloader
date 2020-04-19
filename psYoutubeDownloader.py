@@ -1,5 +1,6 @@
 import tkinter as tk
 import pprint
+import getpass
 from pytube import YouTube
 from PIL import ImageTk, Image
 
@@ -10,20 +11,10 @@ def downloadVideos():
     global entry
     downloadLink = entry.get()
     yt = YouTube(str(downloadLink))
-    # videos = yt.streams.filter(subtype='mp4', progressive=True).order_by('resolution').all()
-    # index = 1
-    # for v in videos:
-    #     print(str(index) + '.' + str(v))
-    #     index += 1
-    # n = int(input("Enter your choice: "))
-    # print()
-    # vid = videos[n-1]
-    # destLoc = str(input("Destination Folder: "))
-    # print()
-    # vid.download(destLoc)
     videos = yt.streams.filter(subtype='mp4', progressive=True).order_by('resolution').first()
     print(videos)
-    destLoc = "C:\\Users\\prajesh\\Desktop\\VideoTest"
+    userName = getpass.getuser()
+    destLoc = "C:\\Users\\" + userName + "\\Desktop\\VideoTest"
     videos.download(str(destLoc))
     print("Video has been downloaded successfully")
 
@@ -46,5 +37,3 @@ button = tk.Button(root, text="Download", fg="black", command=downloadVideos)
 button.pack(side=tk.BOTTOM, pady=10)
 
 root.mainloop()     
-
-
